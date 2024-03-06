@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="Fact_SquareApp">
+<head>
+ <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body style="font-size:22px" ng-controller="FactController">
+ <h2>Factorial and Square of a Number</h2>
+ <input type="number" style="font-size:22px" ng-model="num" placeholder="Enter 
+number">
+ <button style="font-size:22px" ng-click="factcal()">Calculate</button>
+ <p>Factorial: {{ fresult }}</p>
+ <p>Square: {{ sresult }}</p>
+ <script>
+ var app = angular.module('Fact_SquareApp', []);
+ app.controller('FactController', function($scope) {
+ $scope.num = 0;
+ $scope.fresult = 1;
+ $scope.sresult = 0;
+ $scope.factcal = function() 
+ {
+ if ($scope.num === 0) 
+{
+ $scope.fresult = 1;
+ $scope.sresult = 0
+ } 
+else 
+{
+$scope.fresult = 1; 
+ for (var i = 2; i <= $scope.num; i++) 
+ $scope.fresult = $scope.fresult * i;
+ $scope.sresult = $scope.num * $scope.num;
+ }
+ };
+ });
+ </script>
+</body>
+</html>
